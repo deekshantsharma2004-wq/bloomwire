@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BloomWire | Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="announcement-bar"><span>Free shipping on orders above ₹499 • Handcrafted in Jaipur</span></div>
+    <header class="site-header shell">
+      <div class="brand">BloomWire</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="product.html">Product</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-pill" href="index.html#shop">🔍</a>
+        <span class="icon-pill petals">🌸</span>
+        <button class="icon-pill" type="button">♡</button>
+        <a class="icon-pill" href="cart.html">🛒 <span class="count-badge" data-cart-count>0</span></a>
+      </div>
+    </header>
+
+    <main class="shell checkout-shell">
+      <section class="checkout-form premium-shadow">
+        <div class="section-heading">
+          <p class="eyebrow">Checkout</p>
+          <h2>Complete your order.</h2>
+        </div>
+        <form class="checkout-fields" data-checkout-form>
+          <label>Customer name <input type="text" name="name" placeholder="Aanya Sharma" required /></label>
+          <label>Email <input type="email" name="email" placeholder="hello@bloomwire.in" required /></label>
+          <label>Recipient note <textarea name="note" placeholder="Happy anniversary — may this bloom stay forever."></textarea></label>
+          <label>Shipping address <textarea name="address" placeholder="12 Jaipur Heritage Lane, Rajasthan" required></textarea></label>
+          <label>Payment method
+            <select name="payment">
+              <option>Cash on Delivery</option>
+              <option>UPI</option>
+              <option>Card</option>
+            </select>
+          </label>
+          <button type="submit" class="btn-cta">Place order</button>
+          <p class="status-message" data-checkout-status></p>
+        </form>
+      </section>
+      <aside class="summary premium-shadow">
+        <h3>Bill breakdown</h3>
+        <div class="summary-row"><span>Items</span><span>₹4,298</span></div>
+        <div class="summary-row"><span>Gift wrap</span><span>₹49</span></div>
+        <div class="summary-row"><span>Petals redeemed</span><span>-₹50</span></div>
+        <div class="summary-row total"><span>Total</span><span>₹4,297</span></div>
+        <p class="tagline">Petals earned: 84</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <div class="brand">BloomWire</div>
+          <p>Premium artisan floral keepsakes from Jaipur, crafted to turn memories into timeless bloom.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:hello@bloomwire.in">hello@bloomwire.in</a>
+          <a href="https://www.instagram.com/bloomwire._/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+        <div>
+          <h4>Policies</h4>
+          <a href="faq.html">Shipping</a>
+          <a href="faq.html">Refunds</a>
+          <a href="faq.html">Privacy</a>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <form class="newsletter" data-newsletter-form><input type="email" name="email" placeholder="Email address" required /><button type="submit">Join</button></form>
+          <p class="status-message" data-newsletter-status></p>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

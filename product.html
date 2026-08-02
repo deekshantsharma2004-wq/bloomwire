@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BloomWire | Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="announcement-bar"><span>Free shipping on orders above ₹499 • Handcrafted in Jaipur</span></div>
+    <header class="site-header shell">
+      <div class="brand">BloomWire</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="product.html">Product</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-pill" href="index.html#shop">🔍</a>
+        <span class="icon-pill petals">🌸</span>
+        <button class="icon-pill" type="button">♡</button>
+        <a class="icon-pill" href="cart.html">🛒 <span class="count-badge" data-cart-count>0</span></a>
+      </div>
+    </header>
+
+    <main class="shell detail-layout">
+      <section class="product-gallery premium-shadow">
+        <div class="gallery-main peach" data-gallery-main></div>
+        <div class="gallery-grid">
+          <div class="gallery-thumb sage"></div>
+          <div class="gallery-thumb rose"></div>
+          <div class="gallery-thumb lavender"></div>
+        </div>
+      </section>
+
+      <section class="product-detail premium-shadow">
+        <p class="eyebrow">Single Flower</p>
+        <h1 data-product-name>Jaipur Rose Keepsake</h1>
+        <p class="tagline" data-product-tagline>Soft terracotta bloom for romance, milestones, and everyday gratitude.</p>
+        <div class="price-row"><span class="price" data-product-price>₹1,899</span><span class="mrp" data-product-compare>₹2,499</span></div>
+        <div class="product-meta" data-product-petals>🌸 Earn 40 Petals</div>
+        <p data-product-description>Crafted with premium chenille wire, finished in soft terracotta tones, and designed to be everlasting.</p>
+        <div class="detail-actions">
+          <button class="btn-cta" type="button" data-add-cart>Add to Cart</button>
+          <button class="ghost-btn" type="button" data-buy-now>Buy Now</button>
+        </div>
+        <ul class="detail-list" data-product-features>
+          <li>Stem length: 18 cm</li>
+          <li>Wire gauge: medium</li>
+          <li>Care: dust lightly, keep away from direct water</li>
+        </ul>
+      </section>
+    </main>
+
+    <section class="shell section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Why it feels premium</p>
+        <h2>Crafted with artisan detail.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <article class="testimonial-card"><p>“Warm, elegant, and thoughtful — exactly the kind of flower keepsake I wanted.”</p><strong>Aditi • Mumbai</strong></article>
+        <article class="testimonial-card"><p>“The texture and shape feel handmade in the most beautiful way.”</p><strong>Ritika • Delhi</strong></article>
+        <article class="testimonial-card"><p>“This looked like a piece of art rather than a standard gift.”</p><strong>Samaira • Hyderabad</strong></article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <div class="brand">BloomWire</div>
+          <p>Premium artisan floral keepsakes from Jaipur, crafted to turn memories into timeless bloom.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:hello@bloomwire.in">hello@bloomwire.in</a>
+          <a href="https://www.instagram.com/bloomwire._/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+        <div>
+          <h4>Policies</h4>
+          <a href="faq.html">Shipping</a>
+          <a href="faq.html">Refunds</a>
+          <a href="faq.html">Privacy</a>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <form class="newsletter" data-newsletter-form><input type="email" name="email" placeholder="Email address" required /><button type="submit">Join</button></form>
+          <p class="status-message" data-newsletter-status></p>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
