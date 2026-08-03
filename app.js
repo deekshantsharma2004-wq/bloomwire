@@ -60,40 +60,9 @@ let cart = readCart();
 
 const cartCount = () => cart.reduce((sum, item) => sum + item.quantity, 0);
 
-const addToCart = (productId, quantity = 1) => {
-  const existing = cart.find((item) => item.id === productId);
-
-  if (existing) {
-    existing.quantity += quantity;
-  } else {
-    cart.push({ id: productId, quantity });
-  }
-
-  writeCart(cart);
-  refreshCartBadges();
-  updateCartPage();
-};
-
-const updateCartItem = (productId, quantity) => {
-  cart = cart
-    .map((item) => (item.id === productId ? { ...item, quantity: Math.max(1, quantity) } : item))
-    .filter((item) => item.quantity > 0);
-
-  writeCart(cart);
-  refreshCartBadges();
-  updateCartPage();
-};
-
-const removeCartItem = (productId) => {
-  cart = cart.filter((item) => item.id !== productId);
-  writeCart(cart);
-  refreshCartBadges();
-  updateCartPage();
-};
-
 const refreshCartBadges = () => {
   document.querySelectorAll('[data-cart-count]').forEach((node) => {
-    node.textContent = String(cartCount());
+    node.textContent = String(typeof window.getCartCount === 'function' ? window.getCartCount() : cartCount());
   });
 };
 
@@ -224,7 +193,23 @@ const renderProductPage = () => {
   detailListNode.innerHTML = product.features.map((feature) => `<li>${feature}</li>`).join('');
 
   subscribeButton?.addEventListener('click', () => {
-    addToCart(product.id);
+    const itemId = subscribeButton.dataset.productId || product.id;
+    const itemName = subscribeButton.dataset.productName || product.name;
+    const itemPrice = Number(subscribeButton.dataset.productPrice || product.price);
+    const itemImage = subscribeButton.dataset.productImage || product.imageClass;
+
+    if (typeof window.addToCart === 'function') {
+      window.addToCart(itemId, itemName, itemPrice, itemImage, 1);
+    } else {
+      const existing = cart.find((item) => item.id === itemId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ id: itemId, quantity: 1, name: itemName, price: itemPrice, image: itemImage });
+      }
+      writeCart(cart);
+    }
+
     subscribeButton.textContent = 'Added to cart';
     setTimeout(() => {
       subscribeButton.textContent = 'Add to Cart';
@@ -232,12 +217,19 @@ const renderProductPage = () => {
   });
 
   buyNowButton?.addEventListener('click', () => {
-    addToCart(product.id);
+    if (typeof window.addToCart === 'function') {
+      window.addToCart(product.id, product.name, product.price, product.imageClass, 1);
+    }
     window.location.href = 'checkout.html';
   });
 };
 
 const updateCartPage = () => {
+  if (typeof window.renderCartPage === 'function') {
+    window.renderCartPage();
+    return;
+  }
+
   const cartList = document.querySelector('[data-cart-items]');
   const subtotalNode = document.querySelector('[data-subtotal]');
   const totalNode = document.querySelector('[data-total]');
@@ -280,21 +272,6 @@ const updateCartPage = () => {
 
   if (subtotalNode) subtotalNode.textContent = currencyFormatter.format(subtotal);
   if (totalNode) totalNode.textContent = currencyFormatter.format(total);
-
-  cartList.querySelectorAll('[data-qty-change]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const itemId = button.getAttribute('data-qty-change');
-      const delta = Number(button.getAttribute('data-qty-value'));
-      const currentItem = cart.find((item) => item.id === itemId);
-      if (currentItem) {
-        updateCartItem(itemId, currentItem.quantity + delta);
-      }
-    });
-  });
-
-  cartList.querySelectorAll('[data-remove]').forEach((button) => {
-    button.addEventListener('click', () => removeCartItem(button.getAttribute('data-remove')));
-  });
 };
 
 const bindCheckoutForm = () => {

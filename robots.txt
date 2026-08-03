@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deekshantsharma2004-wq.github.io/bloomwire/sitemap.xml

@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <script src="js/cart.js"></script>
   </head>
   <body>
     <div class="announcement-bar"><span>Free shipping on orders above ₹499 • Handcrafted in Jaipur</span></div>
@@ -36,27 +37,28 @@
         </div>
         <form class="checkout-fields" data-checkout-form>
           <label>Customer name <input type="text" name="name" placeholder="Aanya Sharma" required /></label>
+          <label>Phone <input type="tel" name="phone" placeholder="98765 43210" required /></label>
           <label>Email <input type="email" name="email" placeholder="hello@bloomwire.in" required /></label>
-          <label>Recipient note <textarea name="note" placeholder="Happy anniversary — may this bloom stay forever."></textarea></label>
           <label>Shipping address <textarea name="address" placeholder="12 Jaipur Heritage Lane, Rajasthan" required></textarea></label>
-          <label>Payment method
-            <select name="payment">
-              <option>Cash on Delivery</option>
-              <option>UPI</option>
-              <option>Card</option>
-            </select>
-          </label>
+          <label>City <input type="text" name="city" placeholder="Jaipur" required /></label>
+          <label>State <input type="text" name="state" placeholder="Rajasthan" required /></label>
+          <label>PIN code <input type="text" name="pin" placeholder="302001" required /></label>
+          <label>Gift note <textarea name="gift_note" placeholder="Happy anniversary — may this bloom stay forever."></textarea></label>
+          <fieldset class="payment-options">
+            <legend>Payment method</legend>
+            <label><input type="radio" name="payment" value="COD" checked /> Cash on Delivery</label>
+            <label><input type="radio" name="payment" value="UPI" /> UPI</label>
+            <label><input type="radio" name="payment" value="Card" /> Card</label>
+            <label><input type="radio" name="payment" value="Net Banking" /> Net Banking</label>
+          </fieldset>
           <button type="submit" class="btn-cta">Place order</button>
           <p class="status-message" data-checkout-status></p>
         </form>
       </section>
       <aside class="summary premium-shadow">
         <h3>Bill breakdown</h3>
-        <div class="summary-row"><span>Items</span><span>₹4,298</span></div>
-        <div class="summary-row"><span>Gift wrap</span><span>₹49</span></div>
-        <div class="summary-row"><span>Petals redeemed</span><span>-₹50</span></div>
-        <div class="summary-row total"><span>Total</span><span>₹4,297</span></div>
-        <p class="tagline">Petals earned: 84</p>
+        <div data-checkout-summary></div>
+        <div data-free-shipping-bar></div>
       </aside>
     </main>
 
